@@ -7,6 +7,17 @@ app.get("/api/products", (req, res) => {
   res.send(data.products);
 });
 
+app.get("/api/products/:id", (req, res) => {
+  const id = req.params.id;
+  const product = data.products.find((item) => item._id === req.params.id);
+  console.log("product ", product);
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: "Product Not Found with specified id" });
+  }
+});
+
 app.get("/api/products/slug/:slug", (req, res) => {
   const product = data.products.find((x) => x.slug === req.params.slug);
   if (product) {
