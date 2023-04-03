@@ -4,6 +4,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Product from "../components/Product";
 import { Helmet } from "react-helmet-async";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -22,7 +24,7 @@ const Home = () => {
   const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     products: [],
     loading: true,
-    error: [],
+    error: "",
   });
   //   const [products, setProducts] = useState([]);
 
@@ -48,9 +50,9 @@ const Home = () => {
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
-          <div>Loading...</div>
-        ) : error.length !== 0 ? (
-          <div>{error}</div>
+          <LoadingBox />
+        ) : error ? (
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (
