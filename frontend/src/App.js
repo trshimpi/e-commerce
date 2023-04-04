@@ -14,6 +14,7 @@ import CartPage from "./pages/CartPage";
 import SignInPage from "./pages/SignInPage";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import ShippingAddressPage from "./pages/ShippingAddressPage";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -76,6 +77,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/product/:slug" element={<ProductPage />} />
               <Route path="/signin" element={<SignInPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
               <Route path="/shipping" element={<ShippingAddressPage />} />
               <Route path="/cart" element={<CartPage />} />
             </Routes>
