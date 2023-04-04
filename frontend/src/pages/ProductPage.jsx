@@ -69,6 +69,7 @@ const Product = () => {
       type: "CART_ADD_ITEM",
       payload: { ...product, quantity },
     });
+
     navigate("/cart");
   };
 
