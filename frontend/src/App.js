@@ -15,6 +15,7 @@ import SignInPage from "./pages/SignInPage";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import ShippingAddressPage from "./pages/ShippingAddressPage";
 import SignUpPage from "./pages/SignUpPage";
+import PaymentMethodPage from "./pages/PaymentMethodPage";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -24,6 +25,7 @@ function App() {
     ctxDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
   };
   return (
     <BrowserRouter>
@@ -79,6 +81,7 @@ function App() {
               <Route path="/signin" element={<SignInPage />} />
               <Route path="/signup" element={<SignUpPage />} />
               <Route path="/shipping" element={<ShippingAddressPage />} />
+              <Route path="/payment" element={<PaymentMethodPage />} />
               <Route path="/cart" element={<CartPage />} />
             </Routes>
           </Container>
